@@ -1,0 +1,812 @@
+{
+	"info": {
+		"_postman_id": "960f6429-5ecd-431a-81a1-acf5239861e4",
+		"name": "Books Rest API collection",
+		"description": "## 📚 Books REST API - Collection Documentation\n\nWelcome to the **Books REST API Postman Collection**! _**This API manages a many-to-many relationship between books and authors. It provides CRUD operations for both entities.**_ This collection provides a complete set of endpoints to perform CRUD operations on books and authors, perfect for testing your Spring Boot project.\n\n### 🔗 Base URL\n\nAll requests use the collection variable {{baseUrl}}.\n\nexample: {{baseUrl}} = [http://localhost:8080/](http://localhost:8080/)\n\n### 📖 API Endpoints\n\n#### 📘 Books\n\n- **GET** `/api/books`\n    \n    - Fetch all books.\n        \n- **GET** `/api/books/{id}`\n    \n    - Fetch a book by ID.\n        \n- **POST** `/api/books`\n    \n    - Create a new book.\n        \n    - Body: JSON with book details.\n        \n- **PUT** `/api/books/{id}`\n    \n    - Update an existing book.\n        \n    - Body: JSON with updated fields.\n        \n- **DELETE** `/api/books/{id}`\n    \n    - Delete a book by ID.\n        \n\n#### ✍️ Authors\n\n- **GET** `/api/authors`\n    \n    - Fetch all authors.\n        \n- **GET** `/api/authors/{id}`\n    \n    - Fetch an author by ID.\n        \n- **POST** `/api/authors`\n    \n    - Create a new author.\n        \n    - Body: JSON with author details.\n        \n- **PUT** `/api/authors/{id}`\n    \n    - Update an existing author.\n        \n    - Body: JSON with updated fields.\n        \n- **DELETE** `/api/authors/{id}`\n    \n    - Delete an author by ID.\n        \n\n---\n\n### ✅ Requirements\n\n- Java and Spring Boot application running locally or on a server.\n    \n- The database connected and migrations applied (if any).\n    \n\n---\n\n### 🔄 How to Use\n\n1. **Set Base URL**\n    \n    - Open the collection’s Variables tab.\n        \n    - Update `baseUrl` to match your API server.\n        \n2. **Run Requests**\n    \n    - Use individual requests to manually test.\n        \n    - Or use the **Runner** to automate the collection.\n        \n3. **Collection Variables**\n    \n    - baseUrl - the root URL of your API.\n        \n\n---\n\n### ⚠️ Notes\n\n- All endpoints accept and return JSON.\n    \n- HTTP status codes follow REST conventions (`200 OK`, `201 Created`, `204 No Content`, `404 Not Found`, etc.).\n    \n- Use appropriate headers:\n    \n\n\\*Content-Type: application/json  \n\\*Accept: application/json\n\n### 🚀 Author\n\nThis collection was created by **Anuj Kumar** for the Spring Boot Books REST API project.  \nFeel free to customize and share!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45447523"
+	},
+	"item": [
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "Get All Authors",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n     \r\n    {\r\n        \"name\": \"\",\r\n        \"bio\": \"Co-authors of The C Programming Language, which defined the C language and influenced countless programmers worldwide.\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/authors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Authors",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n     \r\n    {\r\n        \"name\": \"\",\r\n        \"bio\": \"Co-authors of The C Programming Language, which defined the C language and influenced countless programmers worldwide.\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/authors",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"authors"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 06:01:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Donald E. Knuth\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Linus Torvald\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Tim Berners Lee\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Brian W. Kernighan & Dennis M. Ritchie\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Robert C. Martin (Uncle Bob)\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Bjarne Stroustrup\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (CLRS)\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"Charles Petzold\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Author by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/authors/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"authors",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Specific Author",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/authors/5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"authors",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 05:58:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 5,\n    \"name\": \"Robert C. Martin (Uncle Bob)\",\n    \"bio\": \"Renowned software engineer, author of Clean Code, Clean Architecture, and The Clean Coder, shaping modern coding standards and software craftsmanship.\",\n    \"books\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Author",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Clifford Stein\",\r\n    \"bio\":\"Professor at Columbia University, known for contributions in combinatorial optimization, scheduling, and algorithms.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/authors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create or save new Author",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Charles Petzold\",\r\n    \"bio\":\"Author of Code: The Hidden Language of Computer Hardware and Software and numerous books on Windows programming, demystifying how computers work.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/authors",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"authors"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 06:00:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 10,\n    \"name\": \"Charles Petzold\",\n    \"bio\": \"Author of Code: The Hidden Language of Computer Hardware and Software and numerous books on Windows programming, demystifying how computers work.\",\n    \"books\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Author",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Thomas H. Cormen\",\r\n    \"bio\":\"Professor of Computer Science, co-author of Introduction to Algorithms, and author of several books on algorithm design and programming education.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/authors/9",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"authors",
+								"9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update existing Author",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (CLRS)\",\r\n    \"bio\":\"Co-authors of Introduction to Algorithms, a definitive guide widely used in academia and industry for understanding algorithms.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/authors/9",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"authors",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 05:48:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 9,\n    \"name\": \"Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (CLRS)\",\n    \"bio\": \"Co-authors of Introduction to Algorithms, a definitive guide widely used in academia and industry for understanding algorithms.\",\n    \"books\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete by Author ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/authors/11",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"authors",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "204 No Content",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/authors/11",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"authors",
+										"11"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 06:04:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete All Authors",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (CLRS)\",\r\n    \"bio\":\"Co-authors of Introduction to Algorithms, a definitive guide widely used in academia and industry for understanding algorithms.\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/authors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Create new Authors.\n    \n- Retreive all Authors or single Author by ID.\n    \n- Update Author Details.\n    \n- Delete individual Atuhor or all Authors in the System."
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Get All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/books",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Books",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/books",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 11:53:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Clean Code\"\n    },\n    {\n        \"id\": 2,\n        \"title\": \"The Art of Computer Programming, Volume 1\"\n    },\n    {\n        \"id\": 3,\n        \"title\": \"The C Programming Language\"\n    },\n    {\n        \"id\": 4,\n        \"title\": \"The C++ Programming Language\"\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Introduction to Algorithms (CLRS)\"\n    },\n    {\n        \"id\": 6,\n        \"title\": \"Code: The Hidden Language of Computer Hardware and Software\"\n    },\n    {\n        \"id\": 7,\n        \"title\": \"Just for Fun: The Story of an Accidental Revolutionary\"\n    },\n    {\n        \"id\": 8,\n        \"title\": \"Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Book by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Introduction to Algorithms (CLRS)\",\r\n  \"isbn\": \"9780262033848\",\r\n  \"price\": 8200,\r\n  \"authorIds\": [9,12,13,14]\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/books/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Specific Book",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Introduction to Algorithms (CLRS)\",\r\n  \"isbn\": \"9780262033848\",\r\n  \"price\": 8200,\r\n  \"authorIds\": [9,12,13,14]\r\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/books/5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"books",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 11:52:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 5,\n    \"title\": \"Introduction to Algorithms (CLRS)\",\n    \"isbn\": \"9780262033848\",\n    \"price\": 8200,\n    \"authors\": [\n        {\n            \"id\": 9,\n            \"name\": \"Thomas H. Cormen\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Charles E. Leiserson\"\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Ronald L. Rivest\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Clifford Stein\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web\",\r\n    \"isbn\":\"9780062515872\",\r\n    \"price\":770,\r\n    \"authorIds\": [3]\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/books",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "save Book with Authors",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"The C++ Programming Language\",\r\n    \"isbn\":\"9780321563842\",\r\n    \"price\":5400,\r\n    \"authorIds\": [7]\r\n  \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/books",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 11:14:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"title\": \"The C++ Programming Language\",\n    \"isbn\": \"9780321563842\",\n    \"price\": 5400,\n    \"authors\": [\n        {\n            \"id\": 7,\n            \"name\": \"Bjarne Stroustrup\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update Book",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Introduction to Algorithms (CLRS)\",\r\n  \"isbn\": \"9780262033848\",\r\n  \"price\": 8200,\r\n  \"authorIds\": [9,12,13,14]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/books/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update Book with Authors",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Introduction to Algorithms (CLRS)\",\r\n  \"isbn\": \"9780262033848\",\r\n  \"price\": 8200,\r\n  \"authorIds\": [9,12,13,14]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/books/5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"books",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 11:50:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 5,\n    \"title\": \"Introduction to Algorithms (CLRS)\",\n    \"isbn\": \"9780262033848\",\n    \"price\": 8200,\n    \"authors\": [\n        {\n            \"id\": 9,\n            \"name\": \"Thomas H. Cormen\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Charles E. Leiserson\"\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Ronald L. Rivest\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Clifford Stein\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web\",\r\n    \"isbn\":\"9780062515872\",\r\n    \"price\":770,\r\n    \"authorIds\": [3]\r\n  \r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/books/8",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"8"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "204 No Content",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web\",\r\n    \"isbn\":\"9780062515872\",\r\n    \"price\":770,\r\n    \"authorIds\": [3]\r\n  \r\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/books/8",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"books",
+										"8"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 11:54:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web\",\r\n    \"isbn\":\"9780062515872\",\r\n    \"price\":770,\r\n    \"authorIds\": [3]\r\n  \r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/books",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Create new books and associate them with existing authors.\n    \n- Retrieve all books or a single book by ID.\n    \n- Update book details, including its associated authors.\n    \n- Delete individual books or all books in the system."
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/",
+			"type": "default"
+		}
+	]
+}
