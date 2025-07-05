@@ -70,8 +70,13 @@ This project uses a global exception handler, returning consistent and meaningfu
 🧪 Testing
 Tested using Postman
 ## 📩 Postman Collection
+<<<<<<< HEAD
 You can download and import the API collection to test all endpoints:  
 [📥 Books Rest API collection.json](BooksRestAPI.postman_collection.json)
+=======
+You can download and import the API collection to test all endpoints: 
+[📥 books_restapi_collection.json](./postman/books_restapi_collection.json)
+>>>>>>> c7945676ebcce17eaf4fe01e2595c9a16002c218
 > Open Postman → Import → Choose the file
 
 🛠️ Future Enhancements
