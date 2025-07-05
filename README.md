@@ -19,6 +19,7 @@ A Spring Boot-based RESTful web service for managing a collection of books. It p
 ✅ Validation on incoming requests  
 ✅ Global exception handling with meaningful error messages  
 ✅ Fully tested Postman collection for API examples  
+✅ API documentation with Swagger UI at http://localhost:8080/swagger-ui/index.html
 ✅ Ready to deploy to any Java runtime environment
 
 📦 How to Run
