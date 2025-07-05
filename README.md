@@ -70,8 +70,8 @@ This project uses a global exception handler, returning consistent and meaningfu
 🧪 Testing
 Tested using Postman
 ## 📩 Postman Collection
-You can download and import the API collection to test all endpoints:  
-[📥 BooksAPI.postman_collection.json](BooksAPI.postman_collection.json)
+You can download and import the API collection to test all endpoints: 
+[📥 books_restapi_collection.json](./postman/books_restapi_collection.json)
 > Open Postman → Import → Choose the file
 
 🛠️ Future Enhancements
